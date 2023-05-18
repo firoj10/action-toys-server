@@ -43,17 +43,19 @@ async function run() {
        const query = {_id: new ObjectId(id)}
         const result = await toyCollection.findOne(query);
         res.send(result)
+
       })
-      // app.get("/actionToy/:email", async (req, res) => {
-      //   console.log(req.params.id);
-      //   const jobs = await toyCollection
-      //     .find({
-      //       selleremail: req.params.email,
-      //     })
-      //     .toArray();
-      //   res.send(jobs);
+      app.get('/myToy/:email', async (req, res) => {
+        // console.log(req.params.id);
+        const jobs = await toyCollection
+          .find({
+            selleremail: req.params.email,
+          })
+          .toArray();
+        res.send(jobs);
       
-      // });
+      });
+
 
     app.post('/actionToy', async(req, res)=>{
         const newToy = req.body;
