@@ -21,6 +21,11 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+app.post('/addToy', async(req, res)=>{
+    const addToy = req.body;
+    console.log(addToy);
+  
+  })
 
 async function run() {
   try {
