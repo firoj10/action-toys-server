@@ -37,6 +37,27 @@ async function run() {
         res.send(result)
       
       })
+    app.get('/maleToy', async(req, res)=>{
+      const query = {subcategoris : 'male-hero'}
+        const cursor = toyCollection.find(query);
+        const result = await cursor.toArray();
+        res.send(result)
+      
+      })
+    app.get('/femaleToy', async(req, res)=>{
+      const query = {subcategoris : 'female-hero'}
+        const cursor = toyCollection.find(query);
+        const result = await cursor.toArray();
+        res.send(result)
+      
+      })
+    app.get('/childrenToy', async(req, res)=>{
+      const query = {subcategoris : 'children-hero'}
+        const cursor = toyCollection.find(query);
+        const result = await cursor.toArray();
+        res.send(result)
+      
+      })
      ;
       app.get('/actionToy/:id', async(req, res)=>{
         const id = req.params.id;
