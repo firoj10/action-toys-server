@@ -66,10 +66,11 @@ async function run() {
     })
 
     app.get('/myToy/:email', async (req, res) => {
+      const order = req.query.order === 'asc' ? 1 : -1;
       const jobs = await toyCollection
         .find({
           selleremail: req.params.email,
-        }).sort({ price: -1 })
+        }).sort({ price: order })
         .toArray();
       res.send(jobs);
 
